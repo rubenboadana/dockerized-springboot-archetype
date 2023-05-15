@@ -2,7 +2,7 @@
 
 ## 🧰 Tech Stack
 * Language: Java 17
-* Framework: Spring Boot 2.7.9
+* Framework: Spring Boot 3.0.6
 * Testing: JUnit Jupiter, MockMVC, TestContainers, Cucumber
 * Build tool: Maven
 * Doc: Swagger
