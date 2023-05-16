@@ -1,5 +1,7 @@
 # Dockerized Spring Boot archetype
 
+[![CI pipeline status](https://github.com/rubenboadana/dockerized-springboot-archetype/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/rubenboadana/dockerized-springboot-archetype/actions/workflows/maven.yml)
+
 ## 🧰 Tech Stack
 * Language: Java 17
 * Framework: Spring Boot 3.0.6
