@@ -16,5 +16,4 @@ public interface ProductRepository {
 
     ProductDTO findById(Long id);
 
-    ProductDTO findByName(String name);
 }

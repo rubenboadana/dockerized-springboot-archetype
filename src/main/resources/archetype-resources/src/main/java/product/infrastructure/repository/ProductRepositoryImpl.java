@@ -48,13 +48,6 @@ public class ProductRepositoryImpl implements ProductRepository {
         ProductEntity productEntity = productJPARepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
         return getDTOFrom(productEntity);
     }
-
-    @Override
-    public ProductDTO findByName(String name) {
-        ProductEntity productEntity = productJPARepository.findByName(name).get(0);
-        return getDTOFrom(productEntity);
-    }
-
     private ProductEntity getEntityFrom(ProductDTO product) {
         return ProductEntity.builder()
                 .name(product.getName())
