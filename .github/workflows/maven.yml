@@ -27,6 +27,7 @@ jobs:
 
 
   build-application:
+    needs: build-archetype
     runs-on: ubuntu-latest
     defaults:
       run:
