@@ -11,7 +11,6 @@ on:
   workflow_dispatch:
 jobs:
   build-archetype:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +22,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn -B -U clean install --file pom.xml
+        run: mvn -B -U clean install -Dversion=${{github.run_id}} --file pom.xml
 
 
   build-application:
@@ -43,7 +42,7 @@ jobs:
           cache: maven
 
       - name: Create archetype
-        run: mvn archetype:generate -B -DarchetypeGroupId=com.example -DarchetypeArtifactId=dockerized-springboot-archetype -DarchetypeVersion=0.0.1-SNAPSHOT -DartifactId=archetype-test -DgroupId=com.example -Dversion=1.0-SNAPSHOT
+        run: mvn archetype:generate -B -DarchetypeGroupId=com.example -DarchetypeArtifactId=dockerized-springboot-archetype -DarchetypeVersion=${{github.run_id}} -DartifactId=archetype-test -DgroupId=com.example -Dversion=${{github.run_id}}
 
       - name: Build with Maven
         run: mvn -B -U clean install --file pom.xml

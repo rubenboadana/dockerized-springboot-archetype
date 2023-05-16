@@ -4,10 +4,14 @@
 
   <groupId>com.example</groupId>
   <artifactId>dockerized-springboot-archetype</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>${version}</version>
   <packaging>maven-archetype</packaging>
 
   <name>dockerized-springboot-archetype</name>
+
+  <properties>
+    <version>0.0.1-SNAPSHOT</version>
+  </properties>
 
   <build>
     <extensions>
