@@ -22,7 +22,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn -B -U clean install -Dversion=${{github.run_id}} --file pom.xml
+        run: mvn -B -U clean install -Dversion=${{github.run_id}}-SNAPSHOT --file pom.xml
 
 
   build-application:
@@ -42,7 +42,7 @@ jobs:
           cache: maven
 
       - name: Create archetype
-        run: mvn archetype:generate -B -DarchetypeGroupId=com.example -DarchetypeArtifactId=dockerized-springboot-archetype -DarchetypeVersion=${{github.run_id}} -DartifactId=archetype-test -DgroupId=com.example -Dversion=${{github.run_id}}
+        run: mvn archetype:generate -B -DarchetypeGroupId=com.example -DarchetypeArtifactId=dockerized-springboot-archetype -DarchetypeVersion=${{github.run_id}}-SNAPSHOT -DartifactId=archetype-test -DgroupId=com.example -Dversion=${{github.run_id}}-SNAPSHOT
 
       - name: Build with Maven
         run: mvn -B -U clean install --file pom.xml
