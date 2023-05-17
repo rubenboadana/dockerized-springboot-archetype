@@ -14,13 +14,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Cache Maven
+        id: cache-primes
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.m2
+            ~/repository
+          key: ${{ github.run_id }}
+
       - uses: actions/checkout@v3
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven
       - name: Build with Maven
         run: mvn -B -U clean install -Dversion=${{github.run_id}}-SNAPSHOT --file pom.xml
 
@@ -33,13 +42,22 @@ jobs:
         working-directory: /home/runner/work/_temp/_github_workflow/
 
     steps:
+      - name: Cache Maven
+        id: cache-primes
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.m2
+            ~/repository
+          key: ${{ github.run_id }}
+
       - uses: actions/checkout@v3
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven
 
       - name: Create archetype
         run: mvn archetype:generate -B -DarchetypeGroupId=com.example -DarchetypeArtifactId=dockerized-springboot-archetype -DarchetypeVersion=${{github.run_id}}-SNAPSHOT -DartifactId=archetype-test -DgroupId=com.example -Dversion=${{github.run_id}}-SNAPSHOT
